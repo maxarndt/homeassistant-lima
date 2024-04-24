@@ -13,7 +13,7 @@ brew install lima
 ```
 
 ### Create Debian VM
-The `homeassistant.yaml` Lima template reflects the requirements specified in the [Home Assistant Supervised requirements](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md#supported-operating-system-system-dependencies-and-versions) but still contains lots of default values.
+The `lima_homeassistant.yaml` Lima template reflects the requirements specified in the [Home Assistant Supervised requirements](https://github.com/home-assistant/architecture/blob/master/adr/0014-home-assistant-supervised.md#supported-operating-system-system-dependencies-and-versions) but still contains lots of default values.
 You can use it as it or adjust it to your specific needs. 
 ```sh
 limactl create --name homeassistant https://raw.githubusercontent.com/maxarndt/homeassistant-lima/main/lima_homeassistant.yaml
