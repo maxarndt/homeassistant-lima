@@ -1,3 +1,7 @@
+# This Lima Template is based on the following reference files:
+# - https://github.com/lima-vm/lima/blob/28578b510136f3f807cf4ad0f4c063594d547f20/examples/docker-rootful.yaml
+# - https://github.com/lima-vm/lima/blob/28578b510136f3f807cf4ad0f4c063594d547f20/examples/debian-12.yaml
+
 # ===================================================================== #
 # BASIC CONFIGURATION
 # ===================================================================== #
@@ -47,7 +51,7 @@ memory: null
 
 # Disk size
 # 🟢 Builtin default: "100GiB"
-disk: 16GiB
+disk: null
 
 # Expose host directories to the guest, the mount point might be accessible from all UIDs in the guest
 # 🟢 Builtin default: null (Mount nothing)
@@ -276,31 +280,6 @@ firmware:
 #    arch: "aarch64"
 #    digest: "sha256:..."
 #    vmType: "qemu"
-
-audio:
-  # EXPERIMENTAL
-  # QEMU audiodev, e.g., "none", "coreaudio", "pa", "alsa", "oss".
-  # VZ driver, use "vz" as device name
-  # Choosing "none" will mute the audio output, and not play any sound.
-  # 🟢 Builtin default: ""
-  device: null
-
-video:
-  # QEMU display, e.g., "none", "cocoa", "sdl", "gtk", "vnc", "default".
-  # Choosing "none" will hide the video output, and not show any window.
-  # Choosing "vnc" will use a network server, and not show any window.
-  # Choosing "default" will pick the first available of: gtk, sdl, cocoa.
-  # As of QEMU v6.2, enabling anything but none or vnc is known to have negative impact
-  # on performance on macOS hosts: https://gitlab.com/qemu-project/qemu/-/issues/334
-  # 🟢 Builtin default: "none"
-  display: null
-  # VNC (Virtual Network Computing) is a platform-independent graphical
-  # desktop-sharing system that uses the Remote Frame Buffer protocol (RFB)
-  vnc:
-    # VNC display, e.g.,"to=L", "host:d", "unix:path", "none"
-    # By convention the TCP port is 5900+d, connections from any host.
-    # 🟢 Builtin default: "127.0.0.1:0,to=9"
-    display: null
 
 # The instance can get routable IP addresses from the vmnet framework using
 # https://github.com/lima-vm/socket_vmnet.
