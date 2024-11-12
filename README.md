@@ -51,6 +51,19 @@ Follow `Step 1`, `Step 3` and `Step 4` of the [Home Assistant supervised-install
   Select `qemuarm-64` if the configuration UI appears in your terminal.
 </details>
 
+### Make sure to restart your Lima VM
+This is currently needed to apply [cgroup related changes](https://www.home-assistant.io/more-info/unsupported/cgroup_version) to grub.
+```sh
+systemctl poweroff
+# wait a second until machine is down and restart via limactl
+limactl start homeassistant
+```
+Once your Lima VM is up and running again, you might want to start again a shell session and if needed switch the user.
+```sh
+limactl shell homeassistant
+sudo su -
+```
+
 ### Open Home Assistant UI in your browser
 Open http://localhost:8123 in your browser.
 It may take some time until all Home Assistant containers are up and running.
